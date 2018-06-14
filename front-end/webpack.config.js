@@ -24,5 +24,8 @@ module.exports = {
             path.resolve(__dirname, "app")
         ],
         extensions: [".js", ".json", ".jsx", ".css"],
-    }
+    },
+    watch: true
 }
+
+
