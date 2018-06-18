@@ -415,19 +415,7 @@ eval("// shim for using process in browser\nvar process = module.exports = {};\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nvar _messages = __webpack_require__(/*! ./messages */ \"./src/messages.js\");\n\nvar _axios = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n\nvar _axios2 = _interopRequireDefault(_axios);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n_axios2.default.get('http://127.0.0.1:8080').then(function (response) {\n  return console.log(response);\n});\n\nconsole.log('app.js Loaded');\nconsole.log(messages);\n\n//# sourceURL=webpack:///./src/app.js?");
-
-/***/ }),
-
-/***/ "./src/messages.js":
-/*!*************************!*\
-  !*** ./src/messages.js ***!
-  \*************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\nvar messages = [{\n    author: 'test',\n    message: 'Testmessage'\n}, {\n    author: 'test2',\n    message: 'Message2'\n}];\nexports.messages = messages;\n\n//# sourceURL=webpack:///./src/messages.js?");
+eval("\n\nvar _axios = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n\nvar _axios2 = _interopRequireDefault(_axios);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n_axios2.default.get('http://127.0.0.1:8080/news').then(function (response) {\n\n   console.log(response);\n\n   var news = \"\";\n\n   for (var i = 0; i < response.data.articles.length; i++) {\n\n      news = news + response.data.articles[i].publishedAt + \"  -  \" + response.data.articles[i].title + \"<li href><a href=\" + response.data.articles[i].url + \"><p>\" + '<br><img class=\"\" src= ' + response.data.articles[i].urlToImage + ' alt=\"_blank\"></img></br>' + \"</p></a></li>\";\n\n      console.log(news);\n   }\n\n   document.getElementById(\"filenews\").innerHTML = news;\n});\n\n//# sourceURL=webpack:///./src/app.js?");
 
 /***/ })
 
